@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "a <- 1\na + a\nlibrary(dplyr)\ninstall.packages(\"swirl\")\nlibrary(\"swirl\")\nframes?\nexit\nlibrary(readr)\nrefine_original <- read_csv(\"~/Desktop/refine_original.csv\")\nView(refine_original)\nstr(refine_original)\ndata(refine_original)\nlibrary(dplyr)\nlibrary(plyr)\nlibrary(dplyr)\ntitanic_original <- read_csv(\"~/Desktop/titanic_original.csv\")\nstr(refine_original)\n",
+    "created" : 1506139567540.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2235280222",
+    "id" : "65EACED9",
+    "lastKnownWriteTime" : 1506139504,
+    "last_content_update" : 1506139504,
+    "path" : "~/.Rhistory",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_history"
+}

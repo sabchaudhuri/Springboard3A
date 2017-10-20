@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# cleaning up brand name\n# philips\n# akzo\n# van houten\n# unilever\n#sapply(refine_original$company, tolower)\n#gsub(\" \", \"\", refine_original$company, fixed = TRUE)\nrefine_original$company <- gsub(\"^ph[a-z]+s\", \"philips\", refine_original$company, ignore.case = TRUE)\nrefine_original$company <- gsub(\"^f[a-z]+s\", \"philips\", refine_original$company, ignore.case = TRUE)\nrefine_original$company <- gsub(\"^ak[ ]*z[o0]\", \"akzo\", refine_original$company, ignore.case = TRUE)\nrefine_original$company <- gsub(\"^uni[a-z]+r\", \"unilever\", refine_original$company, ignore.case = TRUE)\nrefine_original$company <- gsub(\"^van\\\\s[a-z]+ten\", \"van houten\", refine_original$company, ignore.case = TRUE)\n\n# new column product code\nrefine_original$product_code <- substr(refine_original$`Product code / number`, start = 1, stop = 1)\n# new column product number\nrefine_original$product_number <- substr(refine_original$`Product code / number`, start = 3, stop = 4)\n\n# new column product category\nrefine_original$product_category <- refine_original$product_code\n#q = Tablet\nrefine_original$product_category <- sub(\"q\", \"Tablet\", refine_original$product_category, fixed = FALSE)\n#v = TV\nrefine_original$product_category <- sub(\"v\", \"TV\", refine_original$product_category, fixed = FALSE)\n#p = Smartphone\nrefine_original$product_category <- sub(\"p\", \"Smartphone\", refine_original$product_category, fixed = FALSE)\n#x = Laptop\nrefine_original$product_category <- sub(\"x\", \"Laptop\", refine_original$product_category, fixed = FALSE)\n\n# four binary columns for company\n#company_philips\ncompany_philips<-factor(1*(refine_original$company==\"philips\"))\n#company_akzo\ncompany_akzo<-factor(1*(refine_original$company==\"akzo\"))\n#company_van_houten\ncompany_van_houten<-factor(1*(refine_original$company==\"van houten\"))\n#company_unilever\ncompany_unilever<-factor(1*(refine_original$company==\"unilever\"))\n# four binary columns for product\nproduct_smartphone<-factor(1*(refine_original$product_code==\"p\"))\nproduct_tv<-factor(1*(refine_original$product_code==\"v\"))\nproduct_laptop<-factor(1*(refine_original$product_code==\"x\"))\nproduct_tablet<-factor(1*(refine_original$product_code==\"q\"))\n\n#adding columns back to refine_original\nrefine_original$company_philips<-company_philips\nrefine_original$company_akzo<-company_akzo\nrefine_original$company_van_houten<-company_van_houten\nrefine_original$company_unilever<-company_unilever\n\nrefine_original$product_smartphone<-product_smartphone\nrefine_original$product_laptop<-product_laptop\nrefine_original$product_tv<-product_tv\nrefine_original$product_tablet<-product_tablet\n\n# create new column full_address\nrefine_original$full_address <- paste(refine_original$address, refine_original$city, refine_original$country, sep = \" \")\n\n  ",
+    "created" : 1508216938726.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2687863192",
+    "id" : "DAF3C972",
+    "lastKnownWriteTime" : 1508450243,
+    "last_content_update" : 1508450243337,
+    "path" : "~/Desktop/Springboard3A/Script2.R",
+    "project_path" : "Script2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
